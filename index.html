@@ -14,22 +14,21 @@
 <body>
 	<div id="app"></div>
 	<div id ="main" class="flex-container"  
-	style ="background: #4a06c3;"> 
+	style ="background: #4a06c3;">
+	<!-- CARREGAR APLICAÇÂO -->
 
 	<h1 style = " color: white;" >Splash Screen carregada com sucesso!</h1>  
 
 </div>
 
-<!--Your Splash Screen-->
+<!-- Splash Screen-->
 <div id="splash"  class="flex-container" 
 style ="background: #4a06c3 ; display: none"  >
 
-<!--Center align Splash contents in all screen sizes-->
+<!--Alinhamento do LOGO ao centro do navegador-->
 <div class ="flex-item" >
 	<img src="images/icons/icon-192x192.png" 
-	alt="app_icon" 
-	style="width:150px ; height :150px"
-	/>
+	alt="app_icon"/>
 
 	<h2 style ="color: white;">Siefor<h2>
 	</div>
@@ -90,7 +89,7 @@ style ="background: #4a06c3 ; display: none"  >
     }, 50);
 }
 
-setTimeout(function(){ 
+(function(){
 
 	if(typeof(Storage) !== "undefined") {
 
@@ -122,7 +121,7 @@ setTimeout(function(){
              else {
              	document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
              }
-         }, 0);
+         })();
 
      </script>
      <noscript>
