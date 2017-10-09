@@ -7,7 +7,8 @@ self.addEventListener('install', function (event) {
     caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll([
         '/testeSieforPWA',
-        '/testeSieforPWA/index.html'
+        '/testeSieforPWA/index.html',
+        '/style/style.css'
       ]);
     })
   )

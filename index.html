@@ -13,6 +13,79 @@
 
 <body>
   <div id="app"></div>
+   <div id ="main" class="flex-container"  
+       style ="background: #673AB7;"> 
+           
+       <h1 style = " color: white;" > Open in New Browser or Restart this browser</h1>  
+
+ </div>
+  
+  <!--Your Splash Screen-->
+  <div id="splash"  class="flex-container" 
+        style ="background: #E91E63 ; display: none"  >
+    
+     <!--Center align Splash contents in all screen sizes-->
+         <div class ="flex-item" >
+          <img src="images/icon-192x192.png" 
+               alt="app_icon" 
+               style="width:150px ; height :150px"
+               />
+           
+           <h2 style ="color: white;">My Awesome App<h2>
+         </div>
+     </div>
+  <!--  Scripts-->
+  <script type="text/javascript">
+    
+    function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1){
+            clearInterval(timer);
+          
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+}
+
+    setTimeout(function(){ 
+          
+             if(typeof(Storage) !== "undefined") {
+         
+              console.log("Already shown" +sessionStorage.getItem('spalashShown'));
+
+               if( !sessionStorage.getItem('spalashShown') || sessionStorage.getItem('spalashShown') === null ) {  
+                 
+               document.getElementById('splash') .style.display = 'inline';
+
+                //Display splash
+                setTimeout(function(){   
+
+                 fade(document.getElementById('splash'));
+                  // document.getElementById('splash') .style.display = 'none'
+                   // window.location = "http://hiteshsahu.com";
+                  
+                 sessionStorage.setItem('spalashShown', true  );
+              }
+               , 3000);
+      
+                  } else {
+                    
+                     //Display Main Content
+                      document.getElementById('splash') .style.display = 'none'
+                        console.log("Already shown");
+                     }
+                  }
+         
+                else {
+                        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                      }
+                         }, 0);
+
+  	</script>
   <noscript>
     <p>Please enable JavaScript on your browser</p>
   </noscript>
@@ -26,6 +99,9 @@
           console.warn('service worker failed');
         });
     }
+  </script>
+  <script>
+  	
   </script>
 
 </html>
