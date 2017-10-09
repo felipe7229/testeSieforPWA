@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-var CACHE_NAME = 'static-v1';
+var CACHE_NAME = 'static-v2';
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
