@@ -33,113 +33,23 @@ style ="background: #4a06c3 ; display: none"  >
 	<h2 style ="color: white;">Siefor<h2>
 	</div>
 </div>
-<style>
-	html, body, .viewport {
-    width: 100%;
-    height: 100%; 
-    margin: 0;
-}
-.flex-container {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
 
-.flex-item {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+<noscript>
+	<p>Please enable JavaScript on your browser</p>
+</noscript>
+<script>
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('sw.js')
+		.then(function () {
+			console.log('service worker registered');
+		})
+		.catch(function () {
+			console.warn('service worker failed');
+		});
+	}
+</script>
+<script>
 
-}
+</script>
 
-</style>
-<!--  Scripts-->
-<script type="text/javascript">
-
-	function fade(element) {
-    var op = 1;  // initial opacity
-    var timer = setInterval(function () {
-    	if (op <= 0.1){
-    		clearInterval(timer);
-
-    		element.style.display = 'none';
-    	}
-    	element.style.opacity = op;
-    	element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-    	op -= op * 0.1;
-    }, 50);
-}
-
-(function(){
-
-	if(typeof(Storage) !== "undefined") {
-
-		console.log("Already shown" +sessionStorage.getItem('spalashShown'));
-
-		if( !sessionStorage.getItem('spalashShown') || sessionStorage.getItem('spalashShown') === null ) {  
-
-			document.getElementById('splash') .style.display = 'inline';
-
-                //Display splash
-                setTimeout(function(){   
-
-                	fade(document.getElementById('splash'));
-                  // document.getElementById('splash') .style.display = 'none'
-                   // window.location = "http://hiteshsahu.com";
-
-                   sessionStorage.setItem('spalashShown', true  );
-               }
-               , 3000);
-
-            } else {
-
-                     //Display Main Content
-                     document.getElementById('splash') .style.display = 'none'
-                     console.log("Already shown");
-                 }
-             }
-
-             else {
-             	document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-             }
-         })();
-
-     </script>
-     <noscript>
-     	<p>Please enable JavaScript on your browser</p>
-     </noscript>
-     <script>
-     	if ('serviceWorker' in navigator) {
-     		navigator.serviceWorker.register('sw.js')
-     		.then(function () {
-     			console.log('service worker registered');
-     		})
-     		.catch(function () {
-     			console.warn('service worker failed');
-     		});
-     	}
-     </script>
-     <script>
-
-     </script>
-
-     </html>
+</html>

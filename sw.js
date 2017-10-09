@@ -1,13 +1,16 @@
 /* eslint-disable */
 
-var CACHE_NAME = 'static-v4';
+var CACHE_NAME = 'static-v5';
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll([
         '/testeSieforPWA',
-        '/testeSieforPWA/index.html',        
+        '/testeSieforPWA/index.html',  
+        '/testeSieforPWA/style/style.css',
+        '/testeSieforPWA/js/splash.js',
+     
       ]);
     })
   )
