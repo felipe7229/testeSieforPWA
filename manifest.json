@@ -5,7 +5,7 @@
   "background_color": "#2196f3",
   "display": "standalone",
   "Scope": "/",
-  "start_url": "https://felipe7229.github.io/testeSieforPWA/",
+  "start_url": "/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
