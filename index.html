@@ -2,106 +2,141 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agile Poker</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="favicon.ico">
-  <meta name="theme-color" content="#2196f3">
-  <meta name="google-site-verification" content="JN-n_jqXa-yd-js59chzUenJ85IEZ85WFrpqLg5t9C0" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Agile Poker</title>
+	<link rel="manifest" href="manifest.json">
+	<link rel="icon" href="favicon.ico">
+	<meta name="theme-color" content="#2196f3">
+	<meta name="google-site-verification" content="JN-n_jqXa-yd-js59chzUenJ85IEZ85WFrpqLg5t9C0" />
 </head>
 
 <body>
-  <div id="app"></div>
-   <div id ="main" class="flex-container"  
-       style ="background: #673AB7;"> 
-           
-       <h1 style = " color: white;" > Open in New Browser or Restart this browser</h1>  
+	<div id="app"></div>
+	<div id ="main" class="flex-container"  
+	style ="background: #673AB7;"> 
 
- </div>
-  
-  <!--Your Splash Screen-->
-  <div id="splash"  class="flex-container" 
-        style ="background: #E91E63 ; display: none"  >
-    
-     <!--Center align Splash contents in all screen sizes-->
-         <div class ="flex-item" >
-          <img src="images/icons/icon-192x192.png" 
-               alt="app_icon" 
-               style="width:150px ; height :150px"
-               />
-           
-           <h2 style ="color: white;">My Awesome App<h2>
-         </div>
-     </div>
-  <!--  Scripts-->
-  <script type="text/javascript">
-    
-    function fade(element) {
+	<h1 style = " color: white;" > Open in New Browser or Restart this browser</h1>  
+
+</div>
+
+<!--Your Splash Screen-->
+<div id="splash"  class="flex-container" 
+style ="background: #E91E63 ; display: none"  >
+
+<!--Center align Splash contents in all screen sizes-->
+<div class ="flex-item" >
+	<img src="images/icons/icon-192x192.png" 
+	alt="app_icon" 
+	style="width:150px ; height :150px"
+	/>
+
+	<h2 style ="color: white;">My Awesome App<h2>
+	</div>
+</div>
+<style>
+	html, body, .viewport {
+    width: 100%;
+    height: 100%; 
+    margin: 0;
+}
+.flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.flex-item {
+   text-align: center;
+   margin: auto;
+}
+
+</style>
+<!--  Scripts-->
+<script type="text/javascript">
+
+	function fade(element) {
     var op = 1;  // initial opacity
     var timer = setInterval(function () {
-        if (op <= 0.1){
-            clearInterval(timer);
-          
-            element.style.display = 'none';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
+    	if (op <= 0.1){
+    		clearInterval(timer);
+
+    		element.style.display = 'none';
+    	}
+    	element.style.opacity = op;
+    	element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+    	op -= op * 0.1;
     }, 50);
 }
 
-    setTimeout(function(){ 
-          
-             if(typeof(Storage) !== "undefined") {
-         
-              console.log("Already shown" +sessionStorage.getItem('spalashShown'));
+setTimeout(function(){ 
 
-               if( !sessionStorage.getItem('spalashShown') || sessionStorage.getItem('spalashShown') === null ) {  
-                 
-               document.getElementById('splash') .style.display = 'inline';
+	if(typeof(Storage) !== "undefined") {
+
+		console.log("Already shown" +sessionStorage.getItem('spalashShown'));
+
+		if( !sessionStorage.getItem('spalashShown') || sessionStorage.getItem('spalashShown') === null ) {  
+
+			document.getElementById('splash') .style.display = 'inline';
 
                 //Display splash
                 setTimeout(function(){   
 
-                 fade(document.getElementById('splash'));
+                	fade(document.getElementById('splash'));
                   // document.getElementById('splash') .style.display = 'none'
                    // window.location = "http://hiteshsahu.com";
-                  
-                 sessionStorage.setItem('spalashShown', true  );
-              }
+
+                   sessionStorage.setItem('spalashShown', true  );
+               }
                , 3000);
-      
-                  } else {
-                    
+
+            } else {
+
                      //Display Main Content
-                      document.getElementById('splash') .style.display = 'none'
-                        console.log("Already shown");
-                     }
-                  }
-         
-                else {
-                        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-                      }
-                         }, 0);
+                     document.getElementById('splash') .style.display = 'none'
+                     console.log("Already shown");
+                 }
+             }
 
-  	</script>
-  <noscript>
-    <p>Please enable JavaScript on your browser</p>
-  </noscript>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(function () {
-          console.log('service worker registered');
-        })
-        .catch(function () {
-          console.warn('service worker failed');
-        });
-    }
-  </script>
-  <script>
-  	
-  </script>
+             else {
+             	document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+             }
+         }, 0);
 
-</html>
+     </script>
+     <noscript>
+     	<p>Please enable JavaScript on your browser</p>
+     </noscript>
+     <script>
+     	if ('serviceWorker' in navigator) {
+     		navigator.serviceWorker.register('sw.js')
+     		.then(function () {
+     			console.log('service worker registered');
+     		})
+     		.catch(function () {
+     			console.warn('service worker failed');
+     		});
+     	}
+     </script>
+     <script>
+
+     </script>
+
+     </html>
